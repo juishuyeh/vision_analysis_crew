@@ -1,0 +1,35 @@
+vision_analysis_task:
+  description: >
+    使用專業視覺分析工具深入分析指定圖片 {image_path}。
+    請進行以下分析：
+    1. 物體和元素識別：識別圖片中的所有主要物體、人物、建築等
+    2. 文字提取：讀取並整理圖片中的所有可見文字內容
+    3. 場景理解：分析整體場景、環境、氛圍
+    4. 技術細節：顏色分析、構圖、光線等攝影技術元素
+    5. 特殊元素：標識、符號、圖表、數據等特殊內容
+    
+    分析要求：{analysis_requirements}
+    
+    請使用圖片視覺分析工具進行詳細分析。
+  expected_output: >
+    詳細的圖片分析結果，包含所有識別出的元素、文字內容、
+    場景描述和技術細節。分析應該準確、全面、結構化。
+  agent: vision_analyst
+
+report_generation_task:
+  description: >
+    根據視覺分析結果，撰寫一份專業的圖片分析報告。
+    報告應包含：
+    1. 摘要：圖片的總體概況
+    2. 詳細分析：基於視覺分析的具體發現
+    3. 技術資訊：圖片的技術特徵和元素
+    4. 結論：關鍵發現和潛在應用價值
+    
+    請確保報告結構清晰、內容準確、語言專業。
+  expected_output: >
+    一份格式完整的專業圖片分析報告，包含摘要、詳細分析、
+    技術資訊和結論等完整內容。報告應該易於閱讀和理解。
+  agent: report_writer
+  context:
+    - vision_analysis_task
+  output_file: output/vision_analysis_report.md
